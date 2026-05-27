@@ -1,0 +1,209 @@
+@import "tailwindcss";
+ 
+        .custom-bg {
+            background-image: url('background.avif');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #dbeafe;
+        }
+
+
+        .source-title-font {
+            font-family: 'Volkhov', serif;
+            font-weight: 700;
+        }
+
+
+        .source-body-font {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
+
+        main > section {
+            margin-bottom: 2rem;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        main > section,
+        .scroll-anchor {
+            scroll-margin-top: 7.5rem;
+        }
+
+
+        .site-header {
+            min-height: 4.75rem;
+        }
+
+
+        .scroll-anchor {
+            display: block;
+            height: 1px;
+            margin-bottom: -1px;
+        }
+
+
+        .nav-link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            min-height: 2.25rem;
+            border-radius: 999px;
+            padding: 0.35rem 0.65rem;
+            color: #334155;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            transition:
+                color 180ms ease,
+                background-color 180ms ease;
+        }
+
+
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            background: rgba(224, 242, 254, 0.78);
+            color: #0369a1;
+            outline: none;
+        }
+
+
+        .nav-link.is-active {
+            background: rgba(0, 119, 197, 0.1);
+            color: #005fa0;
+        }
+
+
+        .mobile-nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 0.75rem;
+            padding: 0.85rem 1rem;
+            color: #111827;
+            font-size: 0.95rem;
+            font-weight: 700;
+            transition:
+                color 180ms ease,
+                background-color 180ms ease;
+        }
+
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link:focus-visible {
+            background: #f0f9ff;
+            color: #0369a1;
+            outline: none;
+        }
+
+
+        main > section:not(#hero) {
+            max-width: calc(100vw - 4rem);
+            margin-left:  auto;
+            margin-right: auto;
+        }
+
+
+        .reveal-section {
+            visibility: hidden;
+            transform: translateY(18px);
+        }
+
+
+        .reveal-section.section-visible {
+            visibility: visible;
+            animation: sectionStepIn 360ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+
+
+        @keyframes sectionStepIn {
+            from {
+                transform: translateY(18px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+
+        .reveal-card {
+            visibility: hidden;
+            transform: translateY(18px) scale(0.985);
+        }
+
+
+        .reveal-card.is-visible {
+            visibility: visible;
+            animation: cardStepIn 300ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+
+
+        @keyframes cardStepIn {
+            from {
+                transform: translateY(18px) scale(0.985);
+            }
+
+            to {
+                transform: translateY(0) scale(1);
+            }
+        }
+
+
+        .transit-card {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(148, 163, 184, 0.26);
+            border-top: 3px solid #0077c5;
+            border-radius: 14px;
+            padding: 1.15rem;
+            box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+        }
+
+
+        [data-hover-card] {
+            transition:
+                transform 240ms ease,
+                box-shadow 240ms ease,
+                border-color 240ms ease,
+                background-color 240ms ease;
+            will-change: transform;
+        }
+
+
+        [data-hover-card]:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 119, 197, 0.35);
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.14);
+        }
+
+
+        [data-hover-card] img {
+            transition: filter 240ms ease;
+        }
+
+
+        [data-hover-card]:hover img {
+            filter: saturate(1.04) contrast(1.02);
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-section,
+            .reveal-card,
+            [data-hover-card],
+            [data-hover-card] img {
+                animation: none !important;
+                transform: none !important;
+                transition: none !important;
+                visibility: visible !important;
+            }
+        }
+    
